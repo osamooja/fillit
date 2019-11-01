@@ -6,9 +6,17 @@
 /*   By: osamooja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 10:59:33 by osamooja          #+#    #+#             */
-/*   Updated: 2019/11/01 11:25:43 by osamooja         ###   ########.fr       */
+/*   Updated: 2019/11/01 12:45:04 by osamooja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**		Checks for invalid characters from input
+**		Checks for wrong-length lines and/or '\n in an invalid position
+**		Count the number of '#' characters
+**		Checks for '\n at end of piece block
+**		Returns (count) if everything goes fine, if not return (0)
+*/
 
 int		charcount(char *buf)
 {
@@ -31,6 +39,12 @@ int		charcount(char *buf)
 		return (0);
 	return (count);
 }
+
+/*
+**		Checks each '#' character to see if its adjacent to another '#'
+**		Return (count) of these adjancies to validate piece shape
+**		A valid piece with 4 '#' characters will either have 6 or 8 adjacencies
+*/
 
 int		adjacent(char *buf)
 {
@@ -56,6 +70,13 @@ int		adjacent(char *buf)
 	}
 	return (count);
 }
+
+/*
+**		Goes through buf 21 char (one piece of chunk) at a time
+**		Buf is 21 because that the max that can be in one valid block
+**		Calls checking functions to confirm validity
+**		Returns (1) if everything goes fine, if not return (0)
+*/
 
 int		validation(char *buf, int size)
 {
