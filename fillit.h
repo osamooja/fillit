@@ -46,9 +46,9 @@ t_piece			*makelist(char *buf, int size);
 t_piece			*align(t_piece *piece);
 void			shift_x(t_piece *piece, int n);
 void			shift_y(t_piece *piece, int y);
-int				valid(char *buf, int size);
+int				validation(char *buf, int size);
 int				charcount(char *buf);
-int				adjacency_counter(char *buf);
+int				adjacenct(char *buf);
 void			free_piecelist(t_piece *list);
 void			free_map(t_map *map, int map_size);
 

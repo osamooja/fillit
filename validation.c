@@ -35,7 +35,7 @@ int		charcount(char *buf)
 			count++;
 		i++;
 	}
-	(!buf[i] || buf[i] != '\n')
+	if (!buf[i] || buf[i] != '\n')
 		return (0);
 	return (count);
 }

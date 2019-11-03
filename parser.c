@@ -137,7 +137,7 @@ t_piece		*parser(char *filename)
 	if (bytecount > 544 || bytecount < 19)
 		return (NULL);
 	buf[bytecount] = '\0';
-	if (!valid(buf, bytecount))
+	if (!validation(buf, bytecount))
 		return (NULL);
 	return (makelist(buf, bytecount));
 }
