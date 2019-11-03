@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fillit.h"
+
 /*
 **		Checks for invalid characters from input
 **		Checks for wrong-length lines and/or '\n in an invalid position

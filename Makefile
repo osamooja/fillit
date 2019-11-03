@@ -1,24 +1,30 @@
 NAME = fillit
 
-SRCS = parser.c map.c shift.c solver.c validation.c main.c ../libft/*.c
+SRC = main.c map.c solver.c parser.c shift.c validation.c
 
-OBJS = parser.o map.o shift.o solver.o validation.o main.o ../libft/*.o
+OBJ = $(SRC:.c=.o)
 
-HDR = fillit.h
+LIBFT = ./libft/libft.a
 
-LIBHDR = ../libft/libft.h
-
-FLAGS = -Wall -Wextra -Werror
+HEADER = -c -I fillit.h
 
 all: $(NAME)
-	
-$(NAME):
-	gcc -o $(NAME) $(SRCS) $(FLAGS) -I $(HDR) -I $(LIBHDR) 
 
-clean: 
-	/bin/rm -f $(OBJS)
+$(OBJ): %.o: %.c
+		@gcc -c -Wall -Werror -Wextra -I /bft $< -o $@
+
+$(LIBFT):
+	@make -C libft
+
+$(NAME): $(LIBFT) $(OBJ)
+	@gcc $(OBJ) $(LIBFT) -o $(NAME)
+
+clean:
+	/bin/rm -f $(OBJ)
+	@make -C libft clean
 
 fclean: clean
 	/bin/rm -f $(NAME)
+	@make -C libft fclean
 
 re: fclean all
