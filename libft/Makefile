@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: osamooja <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/17 19:31:18 by osamooja          #+#    #+#              #
-#    Updated: 2019/10/19 15:37:52 by osamooja         ###   ########.fr        #
+#    Created: 2019/11/05 11:29:19 by osamooja          #+#    #+#              #
+#    Updated: 2019/11/05 11:38:50 by osamooja         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-NAME= libft.a
+NAME = libft.a
 
-SRCS= ft_atoi.c ft_bzero.c ft_isalnum.c ft_itoa.c ft_lstadd.c ft_lstiter.c \
+SRCS = ft_atoi.c ft_bzero.c ft_isalnum.c ft_itoa.c ft_lstadd.c ft_lstiter.c \
 	 ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_lstmap.c \
 	 ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
 	 ft_memdel.c ft_memmove.c ft_memset.c ft_putchar.c ft_putchar_fd.c \
@@ -26,7 +26,7 @@ SRCS= ft_atoi.c ft_bzero.c ft_isalnum.c ft_itoa.c ft_lstadd.c ft_lstiter.c \
 	 ft_strsub.c ft_strtrim.c ft_tolower.c ft_toupper.c ft_lstdel.c \
 	 ft_is_tsn.c
 
-OBJECTS= ft_atoi.o ft_bzero.o ft_isalnum.o ft_itoa.o ft_lstadd.o ft_lstiter.o \
+OBJECTS = ft_atoi.o ft_bzero.o ft_isalnum.o ft_itoa.o ft_lstadd.o ft_lstiter.o \
 		ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_lstmap.o \
 		ft_memalloc.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o \
 		ft_memdel.o ft_memmove.o ft_memset.o ft_putchar.o ft_putchar_fd.o \
@@ -40,19 +40,18 @@ OBJECTS= ft_atoi.o ft_bzero.o ft_isalnum.o ft_itoa.o ft_lstadd.o ft_lstiter.o \
 		ft_strsub.o ft_strtrim.o ft_tolower.o ft_toupper.o ft_lstdel.o \
 		ft_is_tsn.o
 
-INCLUDES=./
+HEADER = -c -I libft.h
 
 all: $(NAME)
 
 $(NAME): $(SRCS) libft.h
-	@gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRCS)
+	@gcc -Wall -Wextra -Werror $(HEADER) $(SRCS)
 	@ar rc $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
 
 clean:
 	@/bin/rm -f $(OBJECTS)
 
 fclean: clean
-	@/bin/rm -f
+	@/bin/rm -f $(NAME)
 
 re: fclean all

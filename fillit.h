@@ -6,7 +6,7 @@
 /*   By: osamooja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:11:50 by osamooja          #+#    #+#             */
-/*   Updated: 2019/11/05 11:03:08 by osamooja         ###   ########.fr       */
+/*   Updated: 2019/11/05 11:40:14 by osamooja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <fcntl.h>
-# include "libft.h"
+# include "./libft/libft.h"
 
 typedef struct	s_piece
 {
