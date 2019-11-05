@@ -6,7 +6,7 @@
 /*   By: lsjoberg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 14:21:12 by lsjoberg          #+#    #+#             */
-/*   Updated: 2019/11/05 10:58:32 by osamooja         ###   ########.fr       */
+/*   Updated: 2019/11/05 11:06:59 by osamooja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ int		solve_map(t_map *map, t_piece *piece, int map_size)
 
 /*
 **		Start with the smallest map map_size for number of blocks in pieces.
-**		
 */
 
 void	solve(t_piece *piecelist)

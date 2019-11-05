@@ -1,3 +1,15 @@
+#******************************************************************************#
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: osamooja <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/11/05 11:08:00 by osamooja          #+#    #+#              #
+#    Updated: 2019/11/05 11:15:56 by osamooja         ###   ########.fr        #
+#                                                                              #
+#******************************************************************************#
+
 NAME = fillit
 
 SRC = main.c map.c solver.c parser.c shift.c validation.c
@@ -25,6 +37,6 @@ clean:
 
 fclean: clean
 	/bin/rm -f $(NAME)
-	@make -C libft fclean
+	@make -C libft/ fclean
 
 re: fclean all
