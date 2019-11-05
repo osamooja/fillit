@@ -18,10 +18,10 @@
 
 void	shift_x(t_piece *piece, int n)
 {
-	piece->blockcoords[0] += n;
-	piece->blockcoords[2] += n;
-	piece->blockcoords[4] += n;
-	piece->blockcoords[6] += n;
+	piece->tetrimino[0] += n;
+	piece->tetrimino[2] += n;
+	piece->tetrimino[4] += n;
+	piece->tetrimino[6] += n;
 }
 
 /*
@@ -30,8 +30,8 @@ void	shift_x(t_piece *piece, int n)
 
 void	shift_y(t_piece *piece, int n)
 {
-	piece->blockcoords[1] += n;
-	piece->blockcoords[3] += n;
-	piece->blockcoords[5] += n;
-	piece->blockcoords[7] += n;
+	piece->tetrimino[1] += n;
+	piece->tetrimino[3] += n;
+	piece->tetrimino[5] += n;
+	piece->tetrimino[7] += n;
 }

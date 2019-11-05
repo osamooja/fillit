@@ -19,7 +19,7 @@
 
 typedef struct	s_piece
 {
-	int				blockcoords[8];
+	int				tetrimino[8];
 	char			pieceletter;
 	int				x_offset;
 	int				y_offset;

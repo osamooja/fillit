@@ -34,15 +34,15 @@ void		free_piecelist(t_piece *list)
 
 t_piece		*align(t_piece *piece)
 {
-	while (piece->blockcoords[0] != 0 && \
-			piece->blockcoords[2] != 0 && \
-			piece->blockcoords[4] != 0 && \
-			piece->blockcoords[6] != 0)
+	while (piece->tetrimino[0] != 0 && \
+			piece->tetrimino[2] != 0 && \
+			piece->tetrimino[4] != 0 && \
+			piece->tetrimino[6] != 0)
 		shift_x(piece, -1);
-	while (piece->blockcoords[1] != 0 && \
-			piece->blockcoords[3] != 0 && \
-			piece->blockcoords[5] != 0 && \
-			piece->blockcoords[7] != 0)
+	while (piece->tetrimino[1] != 0 && \
+			piece->tetrimino[3] != 0 && \
+			piece->tetrimino[5] != 0 && \
+			piece->tetrimino[7] != 0)
 		shift_y(piece, -1);
 	return (piece);
 }
@@ -70,8 +70,8 @@ t_piece		*makepiece(char *buf, char pieceletter)
 	{
 		if (buf[i] == '#')
 		{
-			piece_ptr->blockcoords[x] = (i >= 5) ? (i % 5) : i;
-			piece_ptr->blockcoords[y] = i / 5;
+			piece_ptr->tetrimino[x] = (i >= 5) ? (i % 5) : i;
+			piece_ptr->tetrimino[y] = i / 5;
 			x += 2;
 			y += 2;
 		}
