@@ -13,7 +13,7 @@
 #include "fillit.h"
 
 /*
-**	Frees the piece list one piece at a time
+**		Free list one piece at a time.
 */
 
 void		free_piecelist(t_piece *list)
@@ -29,7 +29,7 @@ void		free_piecelist(t_piece *list)
 }
 
 /*
-**	Aligns piece to upper-left corner of its field using shifters
+**		Align pieces to upper-left corner.
 */
 
 t_piece		*align(t_piece *piece)
@@ -38,20 +38,17 @@ t_piece		*align(t_piece *piece)
 			piece->tetrimino[2] != 0 && \
 			piece->tetrimino[4] != 0 && \
 			piece->tetrimino[6] != 0)
-		shift_x(piece, -1);
+		shift_x(piece);
 	while (piece->tetrimino[1] != 0 && \
 			piece->tetrimino[3] != 0 && \
 			piece->tetrimino[5] != 0 && \
 			piece->tetrimino[7] != 0)
-		shift_y(piece, -1);
+		shift_y(piece);
 	return (piece);
 }
 
 /*
-** Mallocs a new piece struct
-** Finds & stores coordinates of '#' characters
-** Initializes offsets to zero
-** Returns aligned piece struct
+**		Find & store coordinates of '#' characters.
 */
 
 t_piece		*makepiece(char *buf, char pieceletter)
@@ -84,9 +81,7 @@ t_piece		*makepiece(char *buf, char pieceletter)
 }
 
 /*
-** Passes the buffer to makepiece() one piece-chunk at a time (21 chars)
-** Assigns letter to the made piece
-** Returns a linked list of piece structs
+**		Linked list of piece structs.
 */
 
 t_piece		*makelist(char *buf, int size)
@@ -118,26 +113,22 @@ t_piece		*makelist(char *buf, int size)
 }
 
 /*
-** Control function for all file parsing functions
-** Opens & reads file into a buffer of size 545 (max file size + 1)
-** Rejects a file if too small or too large
-** Calls valid() to check validity of file
-** returns list of piece structs
+**		Opens & reads file into a buffer.
 */
 
 t_piece		*parser(char *filename)
 {
 	char	buf[545];
 	int		fd;
-	int		bytecount;
+	int		bytesread;
 
 	fd = open(filename, O_RDONLY);
-	bytecount = read(fd, buf, 545);
+	bytesread = read(fd, buf, 545);
 	close(fd);
-	if (bytecount > 544 || bytecount < 19)
+	if (bytesread > 544 || bytesread < 19)
 		return (NULL);
-	buf[bytecount] = '\0';
-	if (!validation(buf, bytecount))
+	buf[bytesread] = '\0';
+	if (!validation(buf, bytesread))
 		return (NULL);
-	return (makelist(buf, bytecount));
+	return (makelist(buf, bytesread));
 }

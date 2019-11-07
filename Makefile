@@ -23,13 +23,13 @@ HEADER = -c -I fillit.h
 all: $(NAME)
 
 $(OBJ): %.o: %.c
-		@gcc -c -Wall -Werror -Wextra -I /bft $< -o $@
+		@gcc -g -c -Wall -Werror -Wextra -I /bft $< -o $@
 
 $(LIBFT):
 	@make -C libft
 
 $(NAME): $(LIBFT) $(OBJ)
-	@gcc $(OBJ) $(LIBFT) -o $(NAME)
+	@gcc -g $(OBJ) $(LIBFT) -o $(NAME)
 
 clean:
 	/bin/rm -f $(OBJ)

@@ -13,13 +13,10 @@
 #include "fillit.h"
 
 /*
-** Get the square root and round it up for starting map map_size.
-** Example: If the number of blocks in pieces would require a 2.3 x 2.3 grid
-** then it needs to round up to be 3x3 minimum to fit.
-** In that case this function would return 3.
+**		Get map_size.
 */
 
-int		round_up_sq_rt(int num)
+int		make_map_size(int num)
 {
 	int	map_size;
 
@@ -30,10 +27,7 @@ int		round_up_sq_rt(int num)
 }
 
 /*
-** Use malloc to make space for the map.
-** Use malloc to make space for 2D map array.
-** then you need to malloc out the rows of the map based on map_size as well,
-** plus newline with strnew(). Set it all to .
+**		Make 2D map array.
 */
 
 t_map	*new_map(int map_size)
@@ -50,6 +44,17 @@ t_map	*new_map(int map_size)
 		ft_memset(map->array[i], '.', map_size);
 		i++;
 	}
+	/*
+	int	x;
+
+	x = 0;
+	while (x < map_size)
+	{
+		ft_putstr(map->array[x]);
+		ft_putchar('\n');
+		x++;
+	}
+	*/
 	return (map);
 }
 
@@ -67,7 +72,7 @@ size_t	count_pieces(t_piece *piecelist)
 }
 
 /*
-** Print the map one row at a time followed by newline.
+**		Print the map one row at a time.
 */
 
 void	print_map(t_map *map, int size)
@@ -84,7 +89,7 @@ void	print_map(t_map *map, int size)
 }
 
 /*
-** frees the map.
+**		Free map.
 */
 
 void	free_map(t_map *map, int map_size)

@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "./libft/libft.h"
+# include <stdio.h>
 
 typedef struct	s_piece
 {
@@ -37,15 +38,15 @@ int				solve_map(t_map *map, t_piece *piecelist, int map_size);
 void			place(t_piece *piece, t_map *map, char letter);
 size_t			count_pieces(t_piece *piecelist);
 void			print_map(t_map *map, int size);
-int				round_up_sq_rt(int num);
+int				make_map_size(int num);
 t_map			*new_map(int size);
 void			solve(t_piece *piecelist);
 t_piece			*parser(char *filename);
 t_piece			*makepiece(char *buf, char pieceletter);
 t_piece			*makelist(char *buf, int size);
 t_piece			*align(t_piece *piece);
-void			shift_x(t_piece *piece, int n);
-void			shift_y(t_piece *piece, int y);
+void			shift_x(t_piece *piece);
+void			shift_y(t_piece *piece);
 int				validation(char *buf, int size);
 int				charcount(char *buf);
 int				adjacenct(char *buf);

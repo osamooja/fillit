@@ -13,25 +13,25 @@
 #include "fillit.h"
 
 /*
-**		Shifts a piece 'n' places along the x-axis
+**		Shift along x-axis.
 */
 
-void	shift_x(t_piece *piece, int n)
+void	shift_x(t_piece *piece)
 {
-	piece->tetrimino[0] += n;
-	piece->tetrimino[2] += n;
-	piece->tetrimino[4] += n;
-	piece->tetrimino[6] += n;
+	piece->tetrimino[0] += -1;
+	piece->tetrimino[2] += -1;
+	piece->tetrimino[4] += -1;
+	piece->tetrimino[6] += -1;
 }
 
 /*
-**		Shifts a piece 'n' places along the y-axis
+**		Shift along y-axis.
 */
 
-void	shift_y(t_piece *piece, int n)
+void	shift_y(t_piece *piece)
 {
-	piece->tetrimino[1] += n;
-	piece->tetrimino[3] += n;
-	piece->tetrimino[5] += n;
-	piece->tetrimino[7] += n;
+	piece->tetrimino[1] += -1;
+	piece->tetrimino[3] += -1;
+	piece->tetrimino[5] += -1;
+	piece->tetrimino[7] += -1;
 }

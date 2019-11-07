@@ -12,6 +12,10 @@
 
 #include "fillit.h"
 
+/*
+**		Check if overlaps with previous pieces.
+*/
+
 int		overlap(t_map *map, t_piece *piece)
 {
 	int i;
@@ -32,6 +36,10 @@ int		overlap(t_map *map, t_piece *piece)
 	return (i != 8);
 }
 
+/*
+**		Can either place the piece or place '.' to clear a piece.
+*/
+
 void	place(t_piece *piece, t_map *map, char letter)
 {
 	int	i;
@@ -50,6 +58,10 @@ void	place(t_piece *piece, t_map *map, char letter)
 	}
 }
 
+/*
+**		Check if coordinates in bounds with map.
+*/
+
 int		in_bounds(t_piece *piece, int map_size, char axis)
 {
 	if (axis == 'y')
@@ -65,11 +77,8 @@ int		in_bounds(t_piece *piece, int map_size, char axis)
 }
 
 /*
-** While in bounds, if it doesn't overlap place the piece. Use recursion
-** to check if the rest can fit with the current piece placed where it is.
-**  Otherwise it backtracks and moves current piece
-** then checks if all the pieces that come after fit with current piece moved.
-** place() can either place the piece or place '.' to clear a piece.
+**		Use recursion to check if the pieces fit.
+**		If not it backtracks and moves current piece.
 */
 
 int		solve_map(t_map *map, t_piece *piece, int map_size)
@@ -101,7 +110,7 @@ int		solve_map(t_map *map, t_piece *piece, int map_size)
 }
 
 /*
-**		Start with the smallest map map_size for number of blocks in pieces.
+**		Make map and start solving.
 */
 
 void	solve(t_piece *piecelist)
@@ -109,7 +118,7 @@ void	solve(t_piece *piecelist)
 	t_map	*map;
 	int		map_size;
 
-	map_size = round_up_sq_rt(count_pieces(piecelist) * 4);
+	map_size = make_map_size(count_pieces(piecelist) * 4);
 	map = new_map(map_size);
 	while (!solve_map(map, piecelist, map_size))
 	{
